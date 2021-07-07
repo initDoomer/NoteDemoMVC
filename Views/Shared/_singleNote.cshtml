@@ -1,0 +1,42 @@
+﻿@model NoteDemoMVC.Models.ViewModels.DetailVM
+
+<div class="single_note">
+    <div class="note_title">
+        @Model.Note.Title
+    </div>
+    <div class="note_message">
+        @Model.Note.Message
+    </div>
+
+    <div class="note_info">
+        <span>@Model.Note.Category.Name</span> &nbsp;|| &nbsp;
+        <span>@Model.Note.Status.StatusType</span>
+    </div>
+
+    @*check if the note is already an important if yes then show remove from important else add as important option *@
+
+    @if (Model.IsImportant)
+    {
+
+        <div class="note_urgent ">
+            <a asp-action="AddtoUrgent" asp-controller="Home" asp-route-id="@Model.Note.Id">RemoveUrgent</a>
+
+        </div>
+    }
+    else
+    {
+        <div class="note_important">
+            <a asp-action="AddtoUrgent" asp-controller="Home" asp-route-id="@Model.Note.Id">AddTwoUrgent</a>
+
+        </div>
+    }
+
+
+
+    @*<div class="note_urgent">
+            <a asp-action="AddtoUrgent" asp-controller="Home" asp-route-id="@Model.Note.Id">AddTwoUrgent</a>
+
+        </div>*@
+
+
+</div>

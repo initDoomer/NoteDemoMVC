@@ -1,0 +1,16 @@
+﻿@model IEnumerable<NoteDemoMVC.Models.Note>
+
+
+<div class="cs-container">
+    @foreach (var note in Model)
+    {
+        <div class="note__summary">
+            <div class="note__summary__tile">
+                @note.Title
+            </div>
+
+        </div>
+    }
+
+</div>
+

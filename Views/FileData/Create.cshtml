@@ -1,0 +1,38 @@
+﻿@model NoteDemoMVC.Models.FileData
+
+
+
+<form class="form-horizontal" asp-action="Create" method="POST" enctype="multipart/form-data">
+
+    <input type="file" asp-for="ImageFileName" id="uploadBox">
+    <input type="text" asp-for="ImageCaption" placeholder="caption">
+    <span asp-validation-for="ImageCaption" class="text-danger"></span>
+    <input type="text" asp-for="ImageDescription" placeholder="descripton">
+    <span asp-validation-for="ImageDescription" class="text-danger"></span>
+    <input type="submit" onclick="return validateInput()" class="btn btn-info" value="Add File" />
+</form>
+
+
+
+
+@* client side validation script*@
+@section Scripts{
+
+
+    <script>
+
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<p>no file selected, please select a file</p>'
+                })
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+}

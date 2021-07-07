@@ -1,0 +1,116 @@
+﻿@model NoteDemoMVC.Models.ViewModels.NoteVM
+
+
+@{
+    var title = "Create Product";
+}
+
+<form method="post" asp-action="Upsert">
+
+    @if (Model.Note.Id != 0)
+    {
+
+        title = "Edit Product";
+        <input asp-for="Note.Id" hidden />
+
+
+    }
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info pl-3">@(title)</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Note.Title"></label>
+
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Note.Title" class="form-control" />
+                        <span asp-validation-for="Note.Title" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Note.Message"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Note.Message" class="form-control" />
+                        <span asp-validation-for="Note.Message" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+               
+
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Note.CategoryId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Note.CategoryId" asp-items="@(Model.CategorySelectList)" class="form-control">
+                            <option disabled selected>--Select Category--</option>
+                        </select>
+                        <span asp-validation-for="Note.CategoryId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Note.StatusId"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Note.StatusId" asp-items="@(Model.StatusSelectList)" class="form-control">
+                            <option disabled selected>--Select Application Type--</option>
+                        </select>
+                        <span asp-validation-for="Note.StatusId" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            @if (Model.Note.Id != 0)
+                            {
+                                // update
+                                <input type="submit" class="btn btn-info w-100" value="Update" />
+
+
+                            }
+                            else
+                            {
+                                // create
+                                <input type="submit" class="btn btn-info w-100" value="Create" />
+
+                            }
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success  w-100">
+                                <i class="fas fa-sign-out-alt"></i> &nbsp; Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4  ">
+               
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@* client side validation script*@
+@section Scripts{
+
+    @{ <partial name="_ValidationScriptsPartial" />}
+
+   
+}

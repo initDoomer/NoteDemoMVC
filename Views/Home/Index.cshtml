@@ -1,0 +1,13 @@
+﻿@model IEnumerable<NoteDemoMVC.Models.ViewModels.DetailVM>
+
+
+<div class="cs-container">
+
+    <div class="cs-grid-container">
+        @foreach (var note in Model)
+	    {
+		         <partial name="_singleNote" model="note"/>
+	    }
+
+    </div>
+</div>

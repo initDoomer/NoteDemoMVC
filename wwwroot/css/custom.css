@@ -1,0 +1,58 @@
+﻿.cs-container{
+    max-width: 60vw;
+    margin: 1rem auto;    
+}
+
+.cs-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4px;
+}
+
+
+
+.single_note{
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 1px 1px gray;
+    padding: 3rem 2rem;
+
+}.single_note div{
+     margin: 1rem 0;
+ }
+
+.note_urgent a, .note_important a {
+    cursor: pointer;
+    padding: 0.4rem 2rem;
+    background: tomato;
+    color: white !important;
+    font-size: 0.7rem;
+    border-radius: 4px;
+}
+
+.note_important a {
+    background: cyan;
+}
+
+.note__summary {
+    padding: 4px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: cornflowerblue;
+    color: white;
+
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
